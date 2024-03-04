@@ -1,49 +1,54 @@
+from class1 import Person
+from class2 import Student
 
-class Person:
-    '''
-    name="Name"
-    lastname="Lastname"
-    father="Father"
-    date="04.01.2000"
-    '''
+print("N:")
+n = int(input())
 
-    def __init__(self, name, lastname,father,date):
-        self.name = name
-        self.lastname = lastname
-        self.father = father
-        self.date = date
+a=[]
+for i in range(n):
+    print("\nName:")
+    name=input()
+    print("Lastname:")
+    lastname=input()
+    print("Father:")
+    father=input()
+    print("Date:")
+    date=input()
+    print("Faculty:")
+    faculty=input()
+    print("Group:")
+    group=input()
+    print("Scholarship:")
+    scholarship=int(input())
+    print("Grade:")
+    grade=float(input())
 
-    def age(self):
-        d=[]
-        d=self.date.split(".")
-        ages=2024-int(d[2])
-        return ages
+    a.append(Student(name,lastname,father,date, faculty, group,scholarship,grade))
 
-class Student(Person):
-    '''
-    faculty="facult"
-    group="group"
-    scholarship="1534"
-    grade="47.6"
-    '''
-    def __init__(self, faculty, group,scholarship,grade):
-        self.faculty = faculty
-        self.group = group
-        self.scholarship = scholarship
-        self.grade=grade
-    
-    def schl(self):
-        return self.scholarship
+ages=0
+for i in range(n):
+    ages+=int(a[i].age())
 
-p=Person("Nina","Kolin","Torald","09.12.1991")
-s=Student("Legal","169",14235,99.7)
-s1=Student("Legal","169",2453,60.5)
-s2=Student("Legal","169",4563,68.4)
+schls=0
+for i in range(n):
+    schls+=int(a[i].schl())
+
+print("\nAge: ")
+print(ages/n)
+print("\nScholarship: ")
+print(schls)
+
+'''
+s=Student("Nina","Kolin","Torald","09.12.1991","Legal","169",14235,99.7)
+s1=Student("Petya","Trefd","Geron","25.02.1999","Legal","169",2453,60.5)
+s2=Student("Rona","Apol","Quat","04.03.2000","Legal","169",4563,68.4)
 
 
-print(p.age())
+print("\nAge: ")
+print((s.age()+s1.age()+s2.age())/3)
 
-print("Scholarship: ")
+print("\nScholarship: ")
 print((s.schl()+s1.schl()+s2.schl())/3)
 
 
+'''
